@@ -37,7 +37,6 @@ void insert_into_list(size_t *buf, size_t value, int index_to_replace) {
 int main(void) {
     char buf[BUFFER_SIZE];
     size_t top_three[3] = {0};
-    size_t largest = 0;
     size_t current_count = 0;
     FILE *input = fopen("input.txt", "r");
 
@@ -58,7 +57,6 @@ int main(void) {
 
     fclose(input);
 
-    printf("largest amount: %zu\n", largest);
     printf("sum of larget 3: %zu\n", sum_top_three(top_three));
     printf("top three: [%zu] [%zu] [%zu]\n", top_three[0], top_three[1], top_three[2]);
     return 0;
