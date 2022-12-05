@@ -15,6 +15,7 @@
 
 static Stack *_stack_list[NUM_STACKS];
 
+
 void init_stacks(void) {
     for (int i = 0; i < NUM_STACKS; ++i) {
         _stack_list[i] = stack_init();
@@ -43,6 +44,7 @@ int add_to_stacks(char *line) {
     return num_values_found;
 }
 
+
 void move_one_by_one(int from_stack, int to_stack, int num_crates) {
     char value;
     for (int i = 0; i < num_crates; ++i) {
@@ -50,6 +52,7 @@ void move_one_by_one(int from_stack, int to_stack, int num_crates) {
         stack_push(&_stack_list[to_stack], value);
     }
 }
+
 
 void move_by_group(int from_stack, int to_stack, char num_crates) {
     char values[num_crates];
@@ -63,6 +66,7 @@ void move_by_group(int from_stack, int to_stack, char num_crates) {
         stack_push(&_stack_list[to_stack], values[i]);
     }
 }
+
 
 void execute_instructions(char *line) {
     if (line[0] != 'm') {
@@ -145,11 +149,6 @@ void print_top_of_stacks(void) {
     printf("top of stacks: %s\n", str);
 }
 
-
-void test_execute_instructions(void) {
-    // move 14 from 5 to 4
-    execute_instructions("move 14 from 5 to 4");
-}
 
 void print_stacks(void) {
     for (int i = 0; i < NUM_STACKS; ++i) {
